@@ -16,7 +16,7 @@ for i=1:m
     end    
     Elag = Earnings(4:k-1,i);
     Elagdif = Earnings(2:k-4,i)-Earnings(6:k,i);
-    b(:,i)=regress(Earnings(1:k-5,i), [const, Elag(1:k-5), Elagdif1:k-5]);
+    b(:,i)=regress(Earnings(1:k-5,i), [const, Elag(1:k-5), Elagdif(1:k-5)]);
     Forecasts(i) = Earnings(1,i)*b(1, i)+Elag(1)*b(2,i)+Elagdif(1)*b(3,i);
 end
 
